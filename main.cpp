@@ -5,6 +5,9 @@ int main()
 {
     while (true)
     {
-        std::cout << "testing" << std::endl;
+        for (size_t i = 0; i < 100; i++)
+        {
+            std::cout << "test count = " << i << std::endl;
+        }
     }
 }
