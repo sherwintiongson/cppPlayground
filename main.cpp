@@ -8,6 +8,12 @@ int main()
         for (size_t i = 0; i < 100; i++)
         {
             std::cout << "test count = " << i << std::endl;
+            std::cout << "test count = " << i << std::endl;
+            std::cout << "test count = " << i << std::endl;
+            std::cout << "test count = " << i << std::endl;
+            std::cout << "test count = " << i << std::endl;
+            std::cout << "test count = " << i << std::endl;
+            std::cout << "test count = " << i << std::endl;
         }
     }
 }

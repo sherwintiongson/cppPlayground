@@ -9,16 +9,16 @@ if %ERRORLEVEL% neq 0 (
 
 cmake --build ./build --target clean
 if %ERRORLEVEL% neq 0 (
-    echo Clean failed!
+    echo g++ clean failed!
 ) else (
-    echo Clean succeeded!
+    echo g++ clean succeeded!
 )
 
 cmake --build ./build
 if %ERRORLEVEL% neq 0 (
-    echo Compiler build failed!
+    echo g++ build failed!
 ) else (
-    echo Compiler build succeeded!
+    echo g++ build succeeded!
 )
-
 pause
+
