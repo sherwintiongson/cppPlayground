@@ -14,6 +14,9 @@ message("C++ Language Standard: C++" ${CMAKE_CXX_STANDARD})
 set(PROJECT_VERSION 1.0)
 project(CPPPLAYGROUND VERSION ${PROJECT_VERSION})
 
+# Disable optimization
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0")
+
 # Set CMake policies
 cmake_policy(SET CMP0074 NEW)
 
