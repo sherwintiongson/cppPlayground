@@ -15,11 +15,3 @@ if %ERRORLEVEL% neq 0 (
 ) else (
     echo g++ clean succeeded!
 )
-
-cmake --build ./build
-if %ERRORLEVEL% neq 0 (
-    echo g++ build failed!
-    pause
-) else (
-    echo g++ build succeeded!
-)

@@ -1,19 +1,13 @@
 #include <iostream>
+#include <windows.h>
+
 #include "main.hpp"
+#include "arrays_vectors_test.hpp"
 
 int main() 
 {
-    while (true)
-    {
-        for (size_t i = 0; i < 100; i++)
-        {
-            std::cout << "test count = " << i << std::endl;
-            std::cout << "test count = " << i << std::endl;
-            std::cout << "test count = " << i << std::endl;
-            std::cout << "test count = " << i << std::endl;
-            std::cout << "test count = " << i << std::endl;
-            std::cout << "test count = " << i << std::endl;
-            std::cout << "test count = " << i << std::endl;
-        }
-    }
+    test_arrays_vectors();
+
+    // Delay to avoid overwhelming VSCode
+    Sleep(300);
 }

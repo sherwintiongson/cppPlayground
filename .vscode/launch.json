@@ -3,7 +3,7 @@
     "configurations": [
         
         {
-            "name": "Launch Debug(gdb)",
+            "name": "Sherwin Debug(gdb)",
             "type": "cppdbg",
             "request": "launch",
             "program": "C:\\00_VISUAL_STUDIO_CODE\\cppPlayground\\build\\app.exe",
@@ -27,7 +27,8 @@
                 "engineLogging": false,
                 "trace": true,
                 "traceResponse": true
-            }
+            },
+            "targetArchitecture": "x86_64"
         }
     ]
 }
