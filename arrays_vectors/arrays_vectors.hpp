@@ -20,6 +20,7 @@ public:
   ~arrays_vectors();
   void builtInArraysNotInitialized(void);
   void builtInArraysInitialized(void);
+  void cStringVersusCppString(void);
 };
 
 #endif /* _ARRAYS_VECTORS_H_ */
