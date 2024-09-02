@@ -21,6 +21,7 @@ public:
   void builtInArraysNotInitialized(void);
   void builtInArraysInitialized(void);
   void cStringVersusCppString(void);
+  void classArray_WhenToUseIt(void);
 };
 
 #endif /* _ARRAYS_VECTORS_H_ */

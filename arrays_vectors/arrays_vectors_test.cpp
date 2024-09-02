@@ -7,4 +7,5 @@ void test_arrays_vectors(void)
   obj.builtInArraysNotInitialized();
   obj.builtInArraysInitialized();
   obj.cStringVersusCppString();
+  obj.classArray_WhenToUseIt();
 }

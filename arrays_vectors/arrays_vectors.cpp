@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdint>
 #include <cstring> // in C++, avoid using string.h
+#include <array>
 #include "arrays_vectors.hpp"
 
 /*
@@ -126,4 +127,50 @@ void arrays_vectors::cStringVersusCppString(void)
   {
     std::cout << message[i] << std::endl;
   }
+}
+
+/**
+ * @brief Explore the difference between built-in array and Class Array. 
+ * 
+ * How it works:
+ *  - The raw C-style array uses a more direct memory layout, and the compiler doesn't generate 
+ *    any extra code for methods or bounds checking, resulting in a smaller code size
+ * 
+ *  - std::array, while containing the same data, generates additional code for its member functions 
+ *    and template instantiation. This can slightly increase the size of the compiled binary, but 
+ *    this increase is often minimal and typically justified by the benefits in safety and functionality.
+ *
+ * When to Choose Which:
+ * 1.) Use C-style Arrays when:
+ * - You need minimal overhead and you're working in performance-critical, low-level code (such as embedded 
+ * systems or real-time systems).
+ * - You are certain that the safety and functionality provided by std::array are not needed.
+ * 
+ * 2.) Use std::array when:
+ * - You need bounds checking, better integration with STL algorithms, and a clearer interface.
+ * - You want safer code, better type guarantees, and features like .size() and iterators
+ * - You are not constrained by minimal code size and prefer modern C++ practices.
+ * 
+ */
+void arrays_vectors::classArray_WhenToUseIt(void)
+{
+  const uint16_t length = 100;
+  std::array<uint16_t, length> Lut_NotInitialized; // Do not used this, we want a predictable code
+  std::array<uint16_t, length> Lut_Initialized{};  // Zero-initialization. This is better, produced a predictable code
+
+  // Shows what will happen if array class is not not initialized
+  for (uint8_t eachElement : Lut_NotInitialized)
+  {
+    std::cout << "eachElement = "<< static_cast<int>(eachElement) << std::endl;
+  }
+
+  // Shows what will happen if array class is not not initialized
+  for (uint8_t eachElement : Lut_Initialized)
+  {
+    std::cout << "eachElement = "<< static_cast<int>(eachElement) << std::endl;
+  }
+
+  // This shows the difference in sizeof() vs. .size()
+  std::cout << "Array Size: " << Lut_Initialized.size() << std::endl; // Array Size: 100
+  std::cout << "Class Size: " << sizeof(Lut_Initialized) << std::endl; // Class Size: 200
 }
