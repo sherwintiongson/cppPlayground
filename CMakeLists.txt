@@ -1,4 +1,4 @@
-message(STATUS "--------- Running CMakeList.txt ------------")
+^^message(STATUS "--------- Running CMakeList.txt ------------")
 
 # Set the minimum version of cmake
 cmake_minimum_required(VERSION 3.30)
@@ -22,8 +22,7 @@ cmake_policy(SET CMP0074 NEW)
 
 # Define the executable and lists the source and header files.
 # target name is "app"
-add_executable(app ./main.hpp 
-                    ./main.cpp
+add_executable(app  ./main.cpp
                     ./arrays_vectors/arrays_vectors.hpp
                     ./arrays_vectors/arrays_vectors.cpp
                     ./arrays_vectors/arrays_vectors_test.hpp

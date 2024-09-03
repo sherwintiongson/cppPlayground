@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <cstring> // in C++, avoid using string.h
 #include <array>
+#include <vector>
 #include "arrays_vectors.hpp"
 
 /*
@@ -170,7 +171,184 @@ void arrays_vectors::classArray_WhenToUseIt(void)
     std::cout << "eachElement = "<< static_cast<int>(eachElement) << std::endl;
   }
 
-  // This shows the difference in sizeof() vs. .size()
+  // This shows the difference between sizeof() vs. obj.size()
   std::cout << "Array Size: " << Lut_Initialized.size() << std::endl; // Array Size: 100
   std::cout << "Class Size: " << sizeof(Lut_Initialized) << std::endl; // Class Size: 200
 }
+
+
+/**
+ * @brief Explore the vector class and when to use it 
+ * 
+ * When to use:
+ * - Use std::vector in C++ when you need a dynamic array that can grow and shrink 
+ *   in size during runtime
+ * 
+ * - Similar to a regular array, std::vector provides constant time random access to elements 
+ *   via the subscript operator ([]). Good to use in a fast DSP filters
+ * 
+ * - std::vector guarantees that its elements are stored in contiguous memory locations. 
+ *    This makes it compatible with C-style APIs.
+ * 
+ * When not to use:
+ *  - Frequent Insertions/Deletions in the Middle
+ *  - Non-Contiguous Data Structures
+ */
+void arrays_vectors::vectorClass_WhenToUseIt(void)
+{
+  std::vector<int> vec1;             // Empty vector
+  std::vector<int> vec2(10);         // Vector of 10 elements, default-initialized
+  std::vector<int> vec3(10, 5);      // Vector of 10 elements, each initialized to 5
+  std::vector<int> vec4 = {1, 2, 3}; // Initializer list
+
+  std::cout << "vec1.size = " <<vec1.size() << std::endl;
+  std::cout << "vec2.size = " <<vec2.size() << std::endl;
+  std::cout << "vec3.size = " <<vec3.size() << std::endl;
+  std::cout << "vec4.size = " <<vec4.size() << std::endl;
+
+  // Will not print because size is zero
+  for (size_t i = 0; i < vec1.size(); i++)
+  {
+    std::cout << "vec1 = " << vec1.at(i) << std::endl;
+  }
+  
+  // prints all vec2 values
+  for (size_t i = 0; i < vec2.size(); i++)
+  {
+     std::cout << "vec2 = " << vec2.at(i) << std::endl;
+  }
+
+  // prints all vec3 values
+  for (size_t i = 0; i < vec3.size(); i++)
+  {
+    std::cout << "vec3 = " << vec3.at(i) << std::endl;
+    int test = vec3[100];
+  }
+
+  // prints all vec4 values
+  for (int each : vec4)
+  {
+     std::cout << "vec4 = " << each << std::endl;
+  }
+
+  vec4.push_back(100);
+  vec4.push_back(200);
+  vec4.push_back(300);
+  vec4.push_back(400);
+
+  // prints all vec4 values
+  for (int each : vec4)
+  {
+     std::cout << "vec4 = " << each << std::endl;
+  }
+}
+
+
+/**
+ * @brief Quickly review multi-dimensional built-in array
+ *        Its been awhile since I last use multi array
+ * 
+ */
+void arrays_vectors::multiDimBuiltInArray(void)
+{
+  uint16_t mDimArray[3][4] = { 
+                             { 1, 2, 3, 4 },
+                             { 5, 6, 7, 8 },
+                             { 9, 10, 11, 12 }
+                        };
+
+  // print forward
+  for (int8_t row = 0; row < 3; row++)
+  {
+    for (int8_t col = 0; col < 4; col++)
+    {
+      std::cout << "mDimArray = " << mDimArray[row][col] << std::endl;
+    }
+  }
+
+  // print backward
+  for (int8_t row = 2; row >= 0; row--)
+  {
+    for (int8_t col = 3; col >= 0; col--)
+    {
+      std::cout << "mDimArray = " << mDimArray[row][col] << std::endl;
+    }
+  }
+
+}
+
+/**
+ * @brief Quickly review multi-dimensional array class
+ * 
+ */
+void arrays_vectors::multiDimClassArray(void)
+{
+  std::array<std::array<uint16_t, 4>, 3> mDimArray = {{
+                             {1, 2, 3, 4},
+                             {5, 6, 7, 8},
+                             {9, 10, 11, 12}
+                        }};
+
+  // print forward
+  for (int8_t row = 0; row < 3; row++)
+  {
+    for (int8_t col = 0; col < 4; col++)
+    {
+      std::cout << "mDimArray = " << mDimArray[row][col] << std::endl;
+    }
+  }
+
+  // print backward
+  for (int8_t row = 2; row >= 0; row--)
+  {
+    for (int8_t col = 3; col >= 0; col--)
+    {
+      std::cout << "mDimArray = " << mDimArray[row][col] << std::endl;
+    }
+  }
+}
+
+/**
+ * @brief Accepts 5 keyboard inputs and saves to array class
+ * 
+ */
+void arrays_vectors::keyboardToClassArray(void)
+{
+  std::array<int32_t, 5> storage{};
+
+  for (int16_t i = 0; i < 5; i++)
+  {
+    std::cout << "Please enter a number: " << std::endl;
+    std::cin >> storage[i];
+  }
+
+  for (int32_t eachElement : storage)
+  {
+    std::cout << "The keyboard inputs are: "<< eachElement << std::endl;
+  }
+}
+
+/**
+ * @brief Accepts 5 keyboard inouts and saves to vector class
+ * 
+ */
+void arrays_vectors::keyboardToVectorClass(void)
+{
+  std::vector<int32_t> storage{};
+  int32_t input = 0;
+
+  for (int16_t i = 0; i < 5; i++)
+  {
+    std::cout << "Please enter a number: " << std::endl;
+    std::cin >> input;
+    storage.push_back(input);
+  }
+
+  for (int32_t eachElement : storage)
+  {
+    std::cout << "The keyboard inputs are: "<< eachElement << std::endl;
+  }
+}
+
+
+

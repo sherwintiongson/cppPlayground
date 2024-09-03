@@ -22,6 +22,11 @@ public:
   void builtInArraysInitialized(void);
   void cStringVersusCppString(void);
   void classArray_WhenToUseIt(void);
+  void vectorClass_WhenToUseIt(void);
+  void multiDimBuiltInArray(void);
+  void multiDimClassArray(void);
+  void keyboardToClassArray(void);
+  void keyboardToVectorClass(void);
 };
 
 #endif /* _ARRAYS_VECTORS_H_ */
