@@ -24,9 +24,12 @@
             "preLaunchTask": "CMake: build",
             "internalConsoleOptions": "openOnSessionStart",
             "logging": {
-                "engineLogging": false,
-                "trace": true,
-                "traceResponse": true
+                "moduleLoad": true,         // Disable-enables messages related to loading modules (libraries, etc.).
+                "engineLogging": false,     // Disable-enable detailed GDB/MI engine logging.
+                "trace": false,             // Disable-enable internal GDB/MI tracing messages.
+                "traceResponse": false,
+                "exceptions": true,         // Disable-enable verbose exception messages.
+                "programOutput": true,      // Retains the output from the program being debugged (you probably want to see this).
             },
             "targetArchitecture": "x86_64"
         }
