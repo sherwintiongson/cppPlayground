@@ -222,7 +222,6 @@ void arrays_vectors::vectorClass_WhenToUseIt(void)
   for (size_t i = 0; i < vec3.size(); i++)
   {
     std::cout << "vec3 = " << vec3.at(i) << std::endl;
-    int test = vec3[100];
   }
 
   // prints all vec4 values

@@ -5,7 +5,6 @@
 
 int main() 
 {
-    uint16_t eachElement = 0;
     test_arrays_vectors();
 
     // Delay to avoid overwhelming VSCode

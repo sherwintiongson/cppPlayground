@@ -37,4 +37,9 @@ add_executable(app ./main.hpp
 target_include_directories(app PUBLIC ./arrays_vectors
                           )
 
+if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+target_compile_options(app PRIVATE -Wall -Wextra -Wpedantic -Werror)
+endif()
+                      
+
 message(STATUS "--------- End of CMakeList.txt ------------")
