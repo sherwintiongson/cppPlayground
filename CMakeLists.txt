@@ -36,10 +36,9 @@ add_executable(app ./main.hpp
 # target name is "app"
 target_include_directories(app PUBLIC ./arrays_vectors
                           )
-
+# Treat all enabled warnings (-Wall, -Wextra, -Wpedantic) as errors.
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 target_compile_options(app PRIVATE -Wall -Wextra -Wpedantic -Werror)
 endif()
-                      
 
 message(STATUS "--------- End of CMakeList.txt ------------")
