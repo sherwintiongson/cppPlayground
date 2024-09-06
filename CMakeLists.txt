@@ -1,33 +1,34 @@
 message(STATUS "--------- Running CMakeList.txt ------------")
 
 # Set the minimum version of cmake
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.30)
 
 # Set the project name and version
 project(CPPPLAYGROUND VERSION 1.0)
 
 # Specifies the C++ standard to be used and compiler
-set(CMAKE_CXX_COMPILER "C:/MinGW/bin/g++.exe")
-set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
-
-# Use C++14 standard
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_COMPILER "C:/MinGW/bin/g++.exe")  # point this to the specific compiler 
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Provide feedback on the compiler and standard
 message(STATUS "Compiling using ${CMAKE_CXX_COMPILER}")
 message(STATUS "C++ Language Standard: C++${CMAKE_CXX_STANDARD}")
 
-# Collect source and header files into variables
+# Collect source files into cmake variable called "SOURCES"
 set(SOURCES
     main.cpp
+    functions/function.cpp
+    functions/function_test.cpp
     arrays_vectors/arrays_vectors.cpp
     arrays_vectors/arrays_vectors_test.cpp
 )
 
+# Collect header files into cmake variable called "HEADERS"
 set(HEADERS
     main.hpp
+    functions/function.hpp
+    functions/function_test.hpp
     arrays_vectors/arrays_vectors.hpp
     arrays_vectors/arrays_vectors_test.hpp
 )
@@ -36,7 +37,10 @@ set(HEADERS
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 
 # Specify include directories
-target_include_directories(${PROJECT_NAME} PUBLIC ./arrays_vectors)
+target_include_directories(${PROJECT_NAME} PUBLIC 
+./arrays_vectors
+./functions
+)
 
 # Disable optimization for debug builds and add compiler warnings
 # Treat all enabled warnings (-Wall, -Wextra, -Wpedantic) as errors
