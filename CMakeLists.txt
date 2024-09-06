@@ -1,44 +1,50 @@
 message(STATUS "--------- Running CMakeList.txt ------------")
 
 # Set the minimum version of cmake
-cmake_minimum_required(VERSION 3.30)
+cmake_minimum_required(VERSION 3.16)
+
+# Set the project name and version
+project(CPPPLAYGROUND VERSION 1.0)
 
 # Specifies the C++ standard to be used and compiler
 set(CMAKE_CXX_COMPILER "C:/MinGW/bin/g++.exe")
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
-message("Compiling using " ${CMAKE_CXX_COMPILER})
-message("C++ Language Standard: C++" ${CMAKE_CXX_STANDARD})
 
-# Sets the project name and version
-set(PROJECT_VERSION 1.0)
-project(CPPPLAYGROUND VERSION ${PROJECT_VERSION})
+# Use C++14 standard
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Disable optimization
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0")
+# Provide feedback on the compiler and standard
+message(STATUS "Compiling using ${CMAKE_CXX_COMPILER}")
+message(STATUS "C++ Language Standard: C++${CMAKE_CXX_STANDARD}")
 
-# Set CMake policies
-cmake_policy(SET CMP0074 NEW)
+# Collect source and header files into variables
+set(SOURCES
+    main.cpp
+    arrays_vectors/arrays_vectors.cpp
+    arrays_vectors/arrays_vectors_test.cpp
+)
 
-# Define the executable and lists the source and header files.
-# target name is "app"
-add_executable(app ./main.hpp 
-                   ./main.cpp
-                   ./arrays_vectors/arrays_vectors.hpp
-                   ./arrays_vectors/arrays_vectors.cpp
-                   ./arrays_vectors/arrays_vectors_test.hpp
-                   ./arrays_vectors/arrays_vectors_test.cpp
-              )
+set(HEADERS
+    main.hpp
+    arrays_vectors/arrays_vectors.hpp
+    arrays_vectors/arrays_vectors_test.hpp
+)
 
-# Specifies include directories to use when compiling 
-# a given target. The named <target> must have been created 
-# by a command such as add_executable()
-# target name is "app"
-target_include_directories(app PUBLIC ./arrays_vectors
-                          )
-# Treat all enabled warnings (-Wall, -Wextra, -Wpedantic) as errors.
-if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-target_compile_options(app PRIVATE -Wall -Wextra -Wpedantic -Werror)
+# Define the executable
+add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
+
+# Specify include directories
+target_include_directories(${PROJECT_NAME} PUBLIC ./arrays_vectors)
+
+# Disable optimization for debug builds and add compiler warnings
+# Treat all enabled warnings (-Wall, -Wextra, -Wpedantic) as errors
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -Wpedantic -Werror -O0)
 endif()
 
+# Add additional information about the project and system
+message(STATUS "Project name: ${PROJECT_NAME}, Version: ${PROJECT_VERSION}")
+message(STATUS "CMake version: ${CMAKE_VERSION}")
 message(STATUS "--------- End of CMakeList.txt ------------")

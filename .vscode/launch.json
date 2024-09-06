@@ -6,14 +6,14 @@
             "name": "Sherwin Debug(gdb)",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}\\build\\app.exe",
+            "program": "${workspaceFolder}\\build\\CPPPLAYGROUND.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
-            "miDebuggerPath": "${env:MINGW_GDB_EXE}", // Set MINGW_GDB_EXE environment variable to the full path to C:\MinGW\bin\gdb.exe.
+            "miDebuggerPath": "${env:MINGW_GDB_EXE}", // Set MINGW_GDB_EXE environment variable to the full path e.g. C:\MinGW\bin\gdb.exe.
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
