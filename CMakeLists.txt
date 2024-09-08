@@ -17,20 +17,20 @@ message(STATUS "C++ Language Standard: C++${CMAKE_CXX_STANDARD}")
 
 # Collect source files into cmake variable called "SOURCES"
 set(SOURCES
-    main.cpp
-    functions/function.cpp
-    functions/function_test.cpp
-    arrays_vectors/arrays_vectors.cpp
-    arrays_vectors/arrays_vectors_test.cpp
+    src/main.cpp
+    src/functions/function.cpp
+    src/functions/function_test.cpp
+    src/arrays_vectors/arrays_vectors.cpp
+    src/arrays_vectors/arrays_vectors_test.cpp
 )
 
 # Collect header files into cmake variable called "HEADERS"
 set(HEADERS
-    main.hpp
-    functions/function.hpp
-    functions/function_test.hpp
-    arrays_vectors/arrays_vectors.hpp
-    arrays_vectors/arrays_vectors_test.hpp
+    src/main.hpp
+    src/functions/function.hpp
+    src/functions/function_test.hpp
+    src/arrays_vectors/arrays_vectors.hpp
+    src/arrays_vectors/arrays_vectors_test.hpp
 )
 
 # Define the executable
@@ -38,8 +38,8 @@ add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 
 # Specify include directories
 target_include_directories(${PROJECT_NAME} PUBLIC 
-./arrays_vectors
-./functions
+./src/arrays_vectors
+./src/functions
 )
 
 # Disable optimization for debug builds and add compiler warnings

@@ -3,8 +3,6 @@
 
 #define SKIP_THIS  0
 
-
-
 void test_arrays_vectors(void)
 {
   arrays_vectors obj;

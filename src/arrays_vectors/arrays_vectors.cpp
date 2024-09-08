@@ -52,7 +52,7 @@ arrays_vectors::~arrays_vectors()
  * but conceptually, it initializes each element to zero.
  * 
  */
-void arrays_vectors::builtInArraysNotInitialized(void)
+void arrays_vectors::builtInArraysNotInitialized(void) const
 {
   const uint8_t LEN = 5;
   uint8_t myArray[LEN]= {};  // Zero initialization
@@ -72,7 +72,7 @@ void arrays_vectors::builtInArraysNotInitialized(void)
  * runtime when the function is called.
  * 
  */
-void arrays_vectors::builtInArraysInitialized(void)
+void arrays_vectors::builtInArraysInitialized(void) const
 {
   const uint8_t LEN = 5;
   uint8_t myArray[LEN] = {100, 101, 102, 103, 104};
@@ -106,7 +106,7 @@ void arrays_vectors::builtInArraysInitialized(void)
  *      Prone to errors like buffer overflows	                      Safer with bounds checking
  *      Less user-friendly	                                        Intuitive and more powerful
  */
-void arrays_vectors::cStringVersusCppString(void)
+void arrays_vectors::cStringVersusCppString(void) const
 {
   char str1[]="Sample string";
   char str2[40];
@@ -153,7 +153,7 @@ void arrays_vectors::cStringVersusCppString(void)
  * - You are not constrained by minimal code size and prefer modern C++ practices.
  * 
  */
-void arrays_vectors::classArray_WhenToUseIt(void)
+void arrays_vectors::classArray_WhenToUseIt(void) const
 {
   const uint16_t length = 100;
   std::array<uint16_t, length> Lut_NotInitialized; // Do not used this, we want a predictable code
@@ -194,7 +194,7 @@ void arrays_vectors::classArray_WhenToUseIt(void)
  *  - Frequent Insertions/Deletions in the Middle
  *  - Non-Contiguous Data Structures
  */
-void arrays_vectors::vectorClass_WhenToUseIt(void)
+void arrays_vectors::vectorClass_WhenToUseIt(void) const
 {
   std::vector<int> vec1;             // Empty vector
   std::vector<int> vec2(10);         // Vector of 10 elements, default-initialized
@@ -248,7 +248,7 @@ void arrays_vectors::vectorClass_WhenToUseIt(void)
  *        Its been awhile since I last use multi array
  * 
  */
-void arrays_vectors::multiDimBuiltInArray(void)
+void arrays_vectors::multiDimBuiltInArray(void) const
 {
   uint16_t mDimArray[3][4] = { 
                              { 1, 2, 3, 4 },
@@ -280,7 +280,7 @@ void arrays_vectors::multiDimBuiltInArray(void)
  * @brief Quickly review multi-dimensional array class
  * 
  */
-void arrays_vectors::multiDimClassArray(void)
+void arrays_vectors::multiDimClassArray(void) const
 {
   std::array<std::array<uint16_t, 4>, 3> mDimArray = {{
                              {1, 2, 3, 4},
@@ -311,7 +311,7 @@ void arrays_vectors::multiDimClassArray(void)
  * @brief Accepts 5 keyboard inputs and saves to array class
  * 
  */
-void arrays_vectors::keyboardToClassArray(void)
+void arrays_vectors::keyboardToClassArray(void) const
 {
   std::array<int32_t, 5> storage{};
 
@@ -331,7 +331,7 @@ void arrays_vectors::keyboardToClassArray(void)
  * @brief Accepts 5 keyboard inouts and saves to vector class
  * 
  */
-void arrays_vectors::keyboardToVectorClass(void)
+void arrays_vectors::keyboardToVectorClass(void) const
 {
   std::vector<int32_t> storage{};
   int32_t input = 0;
