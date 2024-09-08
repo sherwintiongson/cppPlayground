@@ -3,6 +3,7 @@
 
 #include "arrays_vectors_test.hpp"
 #include "function_test.hpp"
+#include "house_test.hpp"
 
 using std::cout;
 using std::endl;
@@ -10,8 +11,9 @@ using std::endl;
 int main() 
 {
     //test_arrays_vectors();
-    test_functions();
-    
+    //test_functions();
+    test_house();
+
     // Delay to avoid overwhelming VSCode
     Sleep(300);
 

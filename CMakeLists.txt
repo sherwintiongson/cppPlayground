@@ -22,6 +22,8 @@ set(SOURCES
     src/functions/function_test.cpp
     src/arrays_vectors/arrays_vectors.cpp
     src/arrays_vectors/arrays_vectors_test.cpp
+    src/basicsOfClass/house.cpp
+    src/basicsOfClass/house_test.cpp
 )
 
 # Collect header files into cmake variable called "HEADERS"
@@ -31,6 +33,8 @@ set(HEADERS
     src/functions/function_test.hpp
     src/arrays_vectors/arrays_vectors.hpp
     src/arrays_vectors/arrays_vectors_test.hpp
+    src/basicsOfClass/house.hpp
+    src/basicsOfClass/house_test.hpp
 )
 
 # Define the executable
@@ -40,6 +44,7 @@ add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 target_include_directories(${PROJECT_NAME} PUBLIC 
 ./src/arrays_vectors
 ./src/functions
+./src/basicsOfClass
 )
 
 # Disable optimization for debug builds and add compiler warnings
