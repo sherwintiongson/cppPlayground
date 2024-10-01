@@ -24,6 +24,15 @@ set(SOURCES
     src/arrays_vectors/arrays_vectors_test.cpp
     src/basicsOfClass/house.cpp
     src/basicsOfClass/house_test.cpp
+    src/exceptionClass/exceptionClass.cpp
+    src/exceptionClass/exceptionClass_test.cpp
+    src/reviewCppOop/reviewCppOop.cpp
+    src/reviewCppOop/reviewCppOopTest.cpp
+    src/reviewCppOop/derivedClass.cpp
+    src/static_member/static_member.cpp
+    src/static_member/static_member_test.cpp
+    src/enum_class/enum_class.cpp
+    src/templates/templates.cpp
 )
 
 # Collect header files into cmake variable called "HEADERS"
@@ -33,8 +42,15 @@ set(HEADERS
     src/functions/function_test.hpp
     src/arrays_vectors/arrays_vectors.hpp
     src/arrays_vectors/arrays_vectors_test.hpp
-    src/basicsOfClass/house.hpp
-    src/basicsOfClass/house_test.hpp
+    src/exceptionClass/exceptionClass.hpp
+    src/exceptionClass/exceptionClass_test.hpp
+    src/reviewCppOop/reviewCppOop.hpp
+    src/reviewCppOop/reviewCppOopTest.hpp
+    src/reviewCppOop/derivedClass.hpp
+    src/static_member/static_member.hpp
+    src/static_member/static_member_test.hpp
+    src/enum_class/enum_class.hpp
+    src/templates/templates.hpp
 )
 
 # Define the executable
@@ -45,6 +61,11 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 ./src/arrays_vectors
 ./src/functions
 ./src/basicsOfClass
+./src/exceptionClass
+./src/reviewCppOop
+./src/static_member
+./src/enum_class
+./src/templates
 )
 
 # Disable optimization for debug builds and add compiler warnings
