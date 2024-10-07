@@ -33,6 +33,8 @@ set(SOURCES
     src/static_member/static_member_test.cpp
     src/enum_class/enum_class.cpp
     src/templates/templates.cpp
+    src/smartPointers/smartPointers.cpp
+    src/smartPointers/smartPointers_test.cpp
 )
 
 # Collect header files into cmake variable called "HEADERS"
@@ -51,6 +53,8 @@ set(HEADERS
     src/static_member/static_member_test.hpp
     src/enum_class/enum_class.hpp
     src/templates/templates.hpp
+    src/smartPointers/smartPointers.hpp
+    src/smartPointers/smartPointers_test.hpp
 )
 
 # Define the executable
@@ -66,6 +70,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 ./src/static_member
 ./src/enum_class
 ./src/templates
+./src/smartPointers
 )
 
 # Disable optimization for debug builds and add compiler warnings

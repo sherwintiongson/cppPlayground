@@ -8,6 +8,7 @@
 #include "static_member_test.hpp"
 #include "enum_class.hpp"
 #include "templates.hpp"
+#include "smartPointers_test.hpp"
 
 int main() 
 {
@@ -18,7 +19,9 @@ int main()
     //test_reviewCppOop();
     //test_static_member();
     //enumClass::testEnumClass();
-    test_templateFunctions();
+    //test_templateFunctions();
+    smartPointers_test();
+
 
     // Delay to avoid overwhelming VSCode
     Sleep(300);
@@ -28,3 +31,4 @@ int main()
 
     return 0;
 }
+
